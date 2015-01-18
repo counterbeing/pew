@@ -68,8 +68,14 @@ GEM
     coffee-script-source (1.8.0)
     columnize (0.9.0)
     cookiejar (0.3.2)
+    daemons (1.1.9)
     debug_inspector (0.0.2)
     debugger-linecache (1.2.0)
+    delayed_job (4.0.6)
+      activesupport (>= 3.0, < 5.0)
+    delayed_job_active_record (4.0.3)
+      activerecord (>= 3.0, < 5.0)
+      delayed_job (>= 3.0, < 4.1)
     diff-lcs (1.2.5)
     em-http-request (1.1.2)
       addressable (>= 2.3.4)
@@ -106,7 +112,6 @@ GEM
     log_switch (0.4.0)
     loofah (2.0.1)
       nokogiri (>= 1.5.9)
-    loops (2.0.9)
     macaddr (1.7.1)
       systemu (~> 2.6.2)
     mail (2.6.3)
@@ -241,11 +246,12 @@ PLATFORMS
 DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
+  daemons
+  delayed_job_active_record
   hue!
   jbuilder (~> 2.0)
   jquery-rails
   launchy
-  loops
   pry
   pry-byebug
   pry-rails
