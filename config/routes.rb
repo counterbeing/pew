@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   get 'lights_on' => 'lights#lights_on', as: 'lights_on'
   get 'lights_off' => 'lights#lights_off', as: 'lights_off'
+  get 'animate' => 'lights#animate', as: 'animate'
 
 
   # Example of regular route:
