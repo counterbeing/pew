@@ -1,0 +1,12 @@
+<%= link_to "ALL ON", lights_on_path %> 
+<br>
+<%= link_to "ALL OFF", lights_off_path %>
+<ul>
+  <% @lights.each do |light| %>
+    <li>
+      <%= light.name %> 
+      <%= link_to "ON", lights_on_path(desired_ids: light.id) %> 
+      <%= link_to "OFF", lights_off_path(desired_ids: light.id) %>
+    </li>
+  <% end %>
+</ul>
