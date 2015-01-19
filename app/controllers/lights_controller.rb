@@ -1,5 +1,4 @@
 class LightsController < ApplicationController
-
   def index 
     @lights = LIGHTS
   end
@@ -20,7 +19,17 @@ class LightsController < ApplicationController
     redirect_to '/'
   end
 
+  def animate
+    AnimateLightsJob.perform_later
+    redirect_to '/'
+  end
+
+
   private
+
+  def stop_animation
+    StopAnimationsJob.perform_later
+  end
 
   def ids_to_lights(ids)
     if ids.class != Array
@@ -39,6 +48,7 @@ class LightsController < ApplicationController
       desired_ids = desired_ids.split(',')
       @lights = ids_to_lights(desired_ids)
     else
+      stop_animation
       @lights = LIGHTS
     end
   end
