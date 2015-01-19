@@ -2,13 +2,21 @@
 <br>
 <%= link_to "ALL OFF", lights_off_path %>
 <br>
-<%= link_to "ANIMATE", animate_path %>
+<%= link_to "ANIMATE", animation_path %>
 <ul>
   <% @lights.each do |light| %>
     <li>
       <%= light.name %> 
       <%= link_to "ON", lights_on_path(desired_ids: light.id) %> 
       <%= link_to "OFF", lights_off_path(desired_ids: light.id) %>
+    </li>
+  <% end %>
+</ul>
+
+<ul>
+  <% @animations.each do |animation| %>
+    <li>
+      <%= link_to animation.titleize, animation_path(animation: animation) %> 
     </li>
   <% end %>
 </ul>

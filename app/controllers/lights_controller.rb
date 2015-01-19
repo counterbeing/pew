@@ -1,5 +1,6 @@
 class LightsController < ApplicationController
   def index 
+    @animations = Animation.list_all
     @lights = LIGHTS
   end
 
@@ -20,7 +21,8 @@ class LightsController < ApplicationController
   end
 
   def animate
-    AnimateLightsJob.perform_later
+    animation_name = params[:animation]
+    AnimateLightsJob.perform_later animation_name
     redirect_to '/'
   end
 

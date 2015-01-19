@@ -4,9 +4,7 @@ class AnimateLightsJob < ActiveJob::Base
   def perform(*args)
     starting_length = Delayed::Job.all.length
     while starting_length == Delayed::Job.all.length do 
-      LIGHTS.each {|light| light.set_state(:hue => rand(0...65535))}
-      Delayed::Job.last
-      sleep 1
+      Animation.send(args[0])
     end
   end
 end
