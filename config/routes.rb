@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'lights#index'
+  match "/delayed_job" => DelayedJobWeb, :anchor => false, via: [:get, :post]
 
   get 'lights_on' => 'lights#lights_on', as: 'lights_on'
   get 'lights_off' => 'lights#lights_off', as: 'lights_off'

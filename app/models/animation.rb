@@ -10,7 +10,7 @@ class Animation
   end
 
   def self.slow_shift
-    Animation.increment_hue(5000)
+    Animation.increment_hue(500)
     CLIENT.lights.each do |light|
       light.set_state(:hue => (@@hue))
     end
