@@ -1,5 +1,6 @@
 class Animation
   @max_hue = 65535
+  @@hue    = 0
 
   def self.list_all
     [
@@ -9,8 +10,9 @@ class Animation
   end
 
   def self.slow_shift
+    Animation.increment_hue(5000)
     CLIENT.lights.each do |light|
-      light.set_state(:hue => (light.hue + 500))
+      light.set_state(:hue => (@@hue))
     end
     sleep 1
   end
@@ -20,4 +22,11 @@ class Animation
     sleep 1
   end
 
+  def self.increment_hue(increment=5000)
+    if @@hue > (@max_hue - increment)
+      @@hue = ((@@hue + increment) - @max_hue).abs
+    else
+      @@hue = @@hue + increment
+    end
+  end
 end
