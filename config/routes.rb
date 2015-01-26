@@ -8,8 +8,9 @@ Rails.application.routes.draw do
 
   get 'lights_on' => 'lights#lights_on', as: 'lights_on'
   get 'lights_off' => 'lights#lights_off', as: 'lights_off'
-  get 'animate' => 'lights#animate', as: 'animation'
-
+  get 'lights_random' => 'lights#lights_random', as: 'lights_random'
+  get 'lights_pause_unpause' => 'lights#lights_pause_unpause', as: 'lights_pause_unpause'
+  get 'lights_off_animation' => 'lights#lights_off_animation', as: 'lights_off_animation'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
