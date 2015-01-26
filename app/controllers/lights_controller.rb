@@ -34,9 +34,7 @@ class LightsController < ApplicationController
   end
 
   def ids_to_lights(ids)
-    if ids.class != Array
-      ids = [ids]
-    end
+    ids = [ids] unless ids.class == Array
     lights = []
     ids.each do |id|
       lights << CLIENT.light(id)
